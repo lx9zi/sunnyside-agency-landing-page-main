@@ -34,10 +34,6 @@ body {
     width: 0;
 }
 
-section {
-    min-height: 80vh;
-    max-width: 100%;
-}
 
 .main {
     min-height: 100vh;
@@ -135,8 +131,16 @@ section {
 .fa-solid.fa-arrow-down-long {
     color: var(--White);
     font-size: 7rem;
+    animation: arrow-animation 1s infinite alternate;
+
 }
 
+
+@keyframes arrow-animation {
+    100% {
+        transform: scale(0.6);
+    }
+}
 
 .transform-your-brand {
     display: flex;
@@ -144,19 +148,30 @@ section {
 }
 
 .LeftSide,
-.RightSide,
-.right-image,
-.left-image {
-    flex: 1;
+.RightSide {
+    flex: 1 30rem;
+    min-height: 80vh;
 
+}
+
+.RightSide {
+    background-image: url('./images/desktop/image-transform.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.transform-your-brand.second-section .RightSide {
+    background-image: url('./images/desktop/image-stand-out.jpg');
 }
 
 .content {
     display: flex;
     height: 100%;
     justify-content: center;
+    width: 77%;
     align-items: flex-start;
-    padding: 0 3rem 0 10rem;
+    padding: 0 1% 0 14%;
     flex-direction: column;
 }
 
@@ -210,17 +225,24 @@ section {
 
 
 
-.RightSide img,
-.LeftSide img,
-.left-image img,
-.right-image img {
-    max-width: 100%;
-    display: block;
+
+.transform-your-brand.third-section .RightSide,
+.transform-your-brand.third-section .LeftSide {
+    position: relative;
 }
 
-.left-image,
-.right-image {
-    position: relative;
+.transform-your-brand.third-section .LeftSide {
+    background-image: url('./images/desktop/image-graphic-design.jpg');
+}
+
+.transform-your-brand.third-section .RightSide {
+    background-image: url('./images/desktop/image-photography.jpg');
+}
+
+.LeftSide {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -230,6 +252,7 @@ section {
     bottom: .5rem;
     text-align: center;
     align-items: center;
+    width: 100%;
     flex-direction: column;
 }
 
@@ -275,9 +298,10 @@ section {
 
 .client-testimonials .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 2rem;
+    padding: 0 1rem;
 }
 
 .card {
@@ -285,7 +309,7 @@ section {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    max-width: 30%;
+    flex: 1 20rem;
 }
 
 .card img {
@@ -316,12 +340,15 @@ section {
     min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
+.photo-container {
+    flex: 1 20rem;
+}
 
-.photos img {
-    max-width: 25%;
+.photo-container img {
+    width: 100%;
+    display: block;
 }
 
 footer {
@@ -370,7 +397,7 @@ footer {
 
 @media(max-width:598px) {
     section {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .content {
@@ -378,6 +405,7 @@ footer {
         align-items: center;
         padding: 3rem 1rem;
         text-align: center;
+        width: 100%;
     }
 
     .transform-your-brand.second-section {
@@ -459,5 +487,15 @@ footer {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
+    }
+}
+
+@media(max-width:959px) {
+    .RightSide {
+        order: 1;
+    }
+
+    .LeftSide {
+        order: 2;
     }
 }
